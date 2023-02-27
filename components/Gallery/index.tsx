@@ -1,24 +1,28 @@
-import { MoviesProps } from "@/pages";
 import { useRouter } from "next/router";
-// import styles from './styles.module.scss';
+import { useStore } from '../../components/MovieStoreProvider';
+import { isEmpty, map } from 'lodash';
+import { observer } from "mobx-react";
+import ReactLoading from "react-loading"
+import styles from '@/styles/Home.module.css'
 
-interface GalleryProps {
-    movie: MoviesProps;
-}
-
-export default function Gallery(props: GalleryProps) {
-    const { movie } = props || {};
-    const { Title, Poster: img } = movie || {};
-    const router = useRouter()
+export const Gallery = observer(() => {
+    const router = useRouter();
+    const store = useStore();
     return (
-        <div style={{ overflow: 'hidden', textAlign: 'center', position: 'relative', width: 400, height: 400, borderRadius: 50 }}
-            onClick={() => router?.push(`/movie?id=${Title}`)}>
-            <div style={{ paddingLeft: 20 }}>
-                <img src={img} alt="movie"
-                    style={{ padding: 10 }}
-                    width={200} height={"100%"}
-                ></img>
-            </div>
-        </div>
+        <>
+            {/* show loading screen if empty */}
+            {(isEmpty(store?.movie?.[0]?.Title)) ? <ReactLoading width={'50%'} height={'10%'} /> : (map(store?.movie, x => {
+                return (
+                    <div className={styles?.card}
+                        onClick={() => router?.push(`/movie?id=${x?.Title}`)}>
+                        <img src={x?.Poster} alt="movie"
+                            width={200} height={"100%"}
+                        />
+                        <div>Rating {x?.Metascore} / 100</div>
+                        <div>{x?.Title}</div>
+                    </div>
+                )
+            }))}
+        </>
     );
-}
+})

@@ -1,5 +1,5 @@
 import { MoviesProps } from '@/pages';
-import { observable } from 'mobx'
+import { makeAutoObservable, observable } from 'mobx'
 import { useStaticRendering } from "mobx-react";
 
 const isServer = typeof window === "undefined";
@@ -7,7 +7,7 @@ const isServer = typeof window === "undefined";
 useStaticRendering(isServer);
 
 export class MovieStore {
-   movie: MoviesProps = {
+   @observable movie: MoviesProps = {
     Title: '',
     Year: '',
     Rated: '',
@@ -34,6 +34,10 @@ export class MovieStore {
     Website: '',
     Response: ''
   };
+
+  constructor() {
+    makeAutoObservable(this);
+  }
 
   addMovie(newMovie: MoviesProps) {
     this.movie = newMovie;

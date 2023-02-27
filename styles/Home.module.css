@@ -4,7 +4,40 @@
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
-  min-height: 100vh;
+  background-color: #000000;
+}
+
+.title {
+  color: #ffff00;
+  font-size: 2rem;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.outer {
+  display: flex;
+  min-width: 300px;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #000000;
+  padding: 20px;
+}
+
+.outerTwo {
+  display: flex;
+  min-width: 300px;
+  justify-content: center;
+  padding: 20px;
+  color: #ffffff;
+  background-color: #000000;
+  flex-direction: column;
+  align-self: center;
 }
 
 .description {
@@ -47,9 +80,7 @@
 }
 
 .card {
-  padding: 1rem 1.2rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
+  background: #ffffff;
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
 }
@@ -154,7 +185,8 @@
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
+    background-color: #000000;
+    color: #ffffff;
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
   }
 
