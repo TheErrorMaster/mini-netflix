@@ -30,3 +30,7 @@ export interface Rating {
     Website: string;
     Response: string;
   }
+
+  export interface SingleMovieProps {
+    id: string;
+  }

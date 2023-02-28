@@ -3,10 +3,7 @@ import { isEmpty, map, find } from 'lodash';
 import { observer } from "mobx-react";
 import ReactLoading from "react-loading"
 import styles from '@/styles/sass/Home.module.scss'
-
-interface SingleMovieProps {
-    id: string;
-}
+import { SingleMovieProps } from '@/enum';
 
 export const MovieCard = observer((props: SingleMovieProps) => {
     const {id} = props;
