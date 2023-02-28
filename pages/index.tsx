@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {Gallery} from '@/components/Gallery'
 import { IndexData } from '@/data'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/sass/Home.module.scss'
 
 export default function Home() {
   IndexData();

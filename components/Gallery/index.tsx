@@ -3,7 +3,7 @@ import { useStore } from '../../components/MovieStoreProvider';
 import { isEmpty, map } from 'lodash';
 import { observer } from "mobx-react";
 import ReactLoading from "react-loading"
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/sass/Home.module.scss'
 
 export const Gallery = observer(() => {
     const router = useRouter();
@@ -18,8 +18,8 @@ export const Gallery = observer(() => {
                         <img src={x?.Poster} alt="movie"
                             width={200} height={"100%"}
                         />
-                        <div>Rating {x?.Metascore} / 100</div>
-                        <div>{x?.Title}</div>
+                        <h2>Rating {x?.Metascore} / 100</h2>
+                        <p>{x?.Title}</p>
                     </div>
                 )
             }))}
