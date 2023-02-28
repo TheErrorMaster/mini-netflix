@@ -1,3 +1,4 @@
+# Mini-Netflix Project
 
 ## Getting Started
 
